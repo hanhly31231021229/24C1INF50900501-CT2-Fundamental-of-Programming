@@ -54,7 +54,7 @@ public class Program
     }
     static void baitap04()
     {
-        Console.WriteLine("Nhap so do dai ba canh cua tam giac: ");
+        Console.WriteLine("Nhap so do do dai ba canh cua tam giac: ");
         int a = Convert.ToInt32(Console.ReadLine());
         int b = Convert.ToInt32(Console.ReadLine());
         int c = Convert.ToInt32(Console.ReadLine());
