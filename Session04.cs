@@ -62,6 +62,7 @@ public class Program
         else if (a + b == c && a + c == b && b + c == a) Console.WriteLine("Ba canh vua n hap la mot duong thang");
         else if (a == b && b == c) Console.WriteLine("Tam giac deu");
         else if (a == b || b == c || a == c) Console.WriteLine("Tam giac can");
+        else if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b) Console.WriteLine("Tam giac vuong");
         else Console.WriteLine("Ba canh vua nhap la tam giac thuong");
     }
     static void baitap05()
