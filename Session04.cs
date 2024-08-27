@@ -45,8 +45,8 @@ public class Program
     static void baitap03()
     {
         Console.WriteLine("Nhap gia tri x, y: ");
-        double x = Convert.ToInt32(Console.ReadLine());
-        double y = Convert.ToInt32(Console.ReadLine());
+        double x = Convert.ToSingle(Console.ReadLine());
+        double y = Convert.ToSingle(Console.ReadLine());
         if (x > 0 && y > 0) Console.WriteLine($"Toa do ({x}, {y}) nam trong phan tu thu nhat");
         else if (x > 0 && y < 0) Console.WriteLine($"Toa do ({x}; {y}) nam trong phan tu thu tu");
         else if (x < 0 && y > 0) Console.WriteLine($"Toa do ({x}; {y}) nam trong phan tu thu hai");
