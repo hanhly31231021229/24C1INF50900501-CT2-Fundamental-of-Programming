@@ -59,6 +59,7 @@ public class Program
         int b = Convert.ToInt32(Console.ReadLine());
         int c = Convert.ToInt32(Console.ReadLine());
         if (a + b < c && a + c < b && b + c < a) Console.WriteLine("Ba canh vua nhap khong phai la ba canh cua mot tam giac");
+        else if (a < 0 || b < 0 || c < 0) Console.WriteLine("Ba canh vua nhap khong hop le");
         else if (a + b == c && a + c == b && b + c == a) Console.WriteLine("Ba canh vua n hap la mot duong thang");
         else if (a == b && b == c) Console.WriteLine("Tam giac deu");
         else if (a == b || b == c || a == c) Console.WriteLine("Tam giac can");
