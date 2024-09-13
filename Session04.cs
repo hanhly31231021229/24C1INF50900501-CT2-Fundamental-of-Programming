@@ -1,193 +1,180 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Program
+namespace ConsoleApp1
 {
-    public static void Main()
+    internal class session05
     {
-        //baitap01();
-        //baitap02();
-        //baitap03();
-        //baitap04();
-        //baitap05();
-        //baitap06();
-        //baitap0701();
-        //baitap0702();
-        baitap0703();
-        //baitap08();
-        //baitap09();
-        //baitap10();
-    }
-    static void baitap01()
-    {
-        Console.WriteLine("Nhap so a: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        if (a % 2 == 0)
-        {
-            Console.WriteLine($"{a} la so chan");
-        }
-        else Console.WriteLine($"{a} la so le");
 
-    }
-    static void baitap02()
-    {
-        Console.WriteLine("Nhap 3 so a, b, c: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        int b = Convert.ToInt32(Console.ReadLine());
-        int c = Convert.ToInt32(Console.ReadLine());
-        if (a > b)
+        static void Main(string[] args)
         {
-            if (a > c) Console.WriteLine($"a = {a} la so lon nhat");
-            else Console.WriteLine($"c = {c} la so lon nhat");
-        }
-        else if (b > c) Console.WriteLine($"b = {b} la so lon nhat");
-        else Console.WriteLine($"c = {c} la so lon nhat");
-    }
-    static void baitap03()
-    {
-        Console.WriteLine("Nhap gia tri x, y: ");
-        double x = Convert.ToSingle(Console.ReadLine());
-        double y = Convert.ToSingle(Console.ReadLine());
-        if (x > 0 && y > 0) Console.WriteLine($"Toa do ({x}, {y}) nam trong phan tu thu nhat");
-        else if (x > 0 && y < 0) Console.WriteLine($"Toa do ({x}; {y}) nam trong phan tu thu tu");
-        else if (x < 0 && y > 0) Console.WriteLine($"Toa do ({x}; {y}) nam trong phan tu thu hai");
-        else Console.WriteLine($"Toa do ({x}; {y}) nam trong phan tu thu ba");
-    }
-    static void baitap04()
-    {
-        Console.WriteLine("Nhap so do do dai ba canh cua tam giac: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        int b = Convert.ToInt32(Console.ReadLine());
-        int c = Convert.ToInt32(Console.ReadLine());
-        if (a + b < c && a + c < b && b + c < a) Console.WriteLine("Ba canh vua nhap khong phai la ba canh cua mot tam giac");
-        else if (a < 0 || b < 0 || c < 0) Console.WriteLine("Ba canh vua nhap khong hop le");
-        else if (a + b == c && a + c == b && b + c == a) Console.WriteLine("Ba canh vua n hap la mot duong thang");
-        else if (a == b && b == c) Console.WriteLine("Tam giac deu");
-        else if (a == b || b == c || a == c) Console.WriteLine("Tam giac can");
-        else if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b) Console.WriteLine("Tam giac vuong");
-        else Console.WriteLine("Ba canh vua nhap la tam giac thuong");
-    }
-    static void baitap05()
-    {
-        int sum = 0;
-        Console.WriteLine("Nhap 10 so: ");
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine($"Nhap so thu {i + 1}: ");
-            int a = Convert.ToInt32(Console.ReadLine());
-            sum += a;
-        }
-        double avg = sum / 10.0;
-        Console.WriteLine($"\nTrung binh cong cua 10 so vua nhap la: {avg}");
-    }
-    static void baitap06()
-    {
-        Console.WriteLine("Nhap so nguyen duong n: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        for (int i = 1; i <= 10; i++)
-        {
-            int n = a * i;
-            Console.WriteLine($" {a} * {i} = {n}");
-        }
-    }
-    static void baitap0701()
-    {
-        Console.WriteLine("Nhap so dong: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        for (int i = 1; i <= a; i++)
-        {
-            for (int j = 1; j <= i; j++)
-                Console.Write($"{j} ");
-            Console.Write("\n");
+            //baitap01();
+            //baitap01b();
+            //baitap02();
+            //baitap03();
+            //baitap04();            
+            //baitap05();
+            baitap06();
 
         }
-    }
-    static void baitap0702()
-    {
-        int b = 1;
-        Console.WriteLine("Nhap so dong: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        for (int i = 1; i <= a; i++)
+        static void baitap01()
         {
-            for (int j = 1; j <= i; j++)
-            {
-                Console.Write($"{b} ");
-                ++b;
-            }
-            Console.Write($"\n");
-        }
-    }
-    static void baitap0703()
-    {
-        int b = 1;
-        int c;
-        Console.WriteLine("Nhap so dong: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        for (int i = 1; i <= a; i++)
-        {
-            for (c = 1; c <= a - i; c++) Console.Write(" ");
-            for (int j = 1; j <= i; j++)
-            {
-                Console.Write($"{b} ");
-                ++b;
-            }
-            Console.Write($"\n");
-        }
+            int a = Convert.ToInt16(Console.ReadLine());
+            int b = Convert.ToInt16(Console.ReadLine());
+            int c = Convert.ToInt16(Console.ReadLine());
+            int m = max(a, b, c);
+            Console.WriteLine(m);
 
-    }
-    static void baitap08()
-    {
-        double sum = 0.0;
-        Console.WriteLine("Nhap so n: ");
-        int n = Convert.ToInt32(Console.ReadLine());
-        for (int i = 1; i <= n; i++)
-        {
-            if (i < n)
+
+            static int max(int a, int b, int c)
             {
-                Console.Write($"1/{i} + ");
-                sum += 1 / (float)i;
+
+                return Math.Max(Math.Max(a, b), c);
             }
-            if (i == n)
+            Console.ReadKey();
+        }
+        static void baitap01b()
+        {
+            int M = Max(1, 2, 3, 4, 5, 6, 7);
+            Console.WriteLine(M);
+            static int Max(int a, params int[] args)
             {
-                sum += 1 / (float)i;
-                Console.WriteLine($"1/{i} ");
+                int m = args[0];
+                foreach (int i in args)
+                {
+                    if (i > m)
+                    {
+                        m = i;
+                    }
+
+                }
+                return Math.Max(a, m);
             }
         }
-        Console.WriteLine($"Tong cua day la: {sum}");
-    }
-    static void baitap09()
-    {
-        int n, sum;
-        Console.WriteLine("Nhap so nguyen duong a va b: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        int b = Convert.ToInt32(Console.ReadLine());
-        for (int i = a; i <= b; i++)
+        static void baitap02()
         {
-            n = 1;
-            sum = 0;
-            while (n < i)
+            int n = Convert.ToInt16(Console.ReadLine());
+            long f = factorial(n);
+            Console.WriteLine(f);
+            static long factorial (int n)
             {
-                if (i % n == 0) sum = sum + n;
-                n++;
+                long f = 1;
+                for (int i = 1; i <= n; i++)
+                    f *= i;
+                return f;
             }
-            if (sum == i) Console.WriteLine($"So {i} la so hoan hao");
+            static long factorial_recursion (int n)
+            {
+                if (n == 0) return 1;
+                return n * factorial_recursion (n-1);
+            }
+
         }
-    }
-    static void baitap10()
-    {
-        int a = 0;
-        Console.WriteLine("Nhap so nguyen duong n: ");
-        int n = Convert.ToInt32(Console.ReadLine());
-        for (int i = 2; i <= n / 2; i++)
+        static void baitap03()
         {
-            if (n % i == 0)
+            int n = Convert.ToInt16(Console.ReadLine());
+            bool ch = check(n);
+            Console.WriteLine(ch);
+            static bool check(int n)
             {
-                a++;
-                Console.WriteLine($"{n} khong phai so nguyen to");
-                break;
+                int a = 0;
+
+                for (int i = 2; i <= n/2; i++)
+                {
+                    if (n% i == 0)
+                    {
+                        a++;
+                    }
+                }
+                if (a == 0 && n != 1) return true;
+                else return false;
+            }
+
+        }
+        static void baitap04()
+
+        {
+            int n = Convert.ToInt16(Console.ReadLine());
+            printFirstNprimeNumber(n);
+            printPrimeNumberUnderN(n);
+            static bool isPrime(int number)            
+            {
+                for (int i = 2; i <= number / 2; i++)
+                    if (number % i == 0)
+                        return false;
+                return true;
+            }
+            static void printPrimeNumberUnderN(int n)
+            {
+                for(int i = 1;i<=n;i++)
+                    if(isPrime(i))
+                        Console.WriteLine(i);
+            }
+
+            static void printFirstNprimeNumber(int n)
+            {
+                int count = 0;
+                int number = 1;
+                while (count <= n)
+                {
+                    if (isPrime(number))
+                    {
+                        Console.WriteLine($"{count}: {number}");
+                        count++;
+                    }
+                    number++;
+                }
             }
         }
-        if (a == 0 && n != 1) Console.WriteLine($"{n} la so nguyen to");
+        static void baitap05()
+        {
+            int n = Convert.ToInt16(Console.ReadLine());
+            bool p1 = isPerfectnumber(n);
+            Console.WriteLine($"n = {n} is a perfect number: {p1}");
+            printPerfectNumberUnder1000(n);
+            static bool isPerfectnumber(int n)
+            { 
+                int a = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0) a = a + i;
+                }
+                if (a == n) return true;
+                else return false; 
+            }
+            static void printPerfectNumberUnder1000(int n) 
+            {
+               for (int i = 1; i < 1000; i++)
+                {
+                    if (p1(i) == true) Console.WriteLine(i);
+                }
+            }
+        }
+        static void baitap06()
+        {
+            string s = Console.ReadLine();
+            s = s.ToLower();
+            bool check = checkPangram(s);
+            Console.WriteLine($"The string '{s}' is a pangram: {check}");
+            static bool checkPangram(string s)
+            {
+                bool [] check = new bool [26];
+                foreach (char c in s)
+                {
+                    for (char a = 'a'; a <= 'z'; a++)
+                    {
+                        if (c == a) check[c - 'a'] = true;
+                    }
+                }
+                foreach (bool b in check)
+                {
+                    if (b==false) return false;
+                    else return true;
+                }
+            }
+        }
     }
 }
-
-
