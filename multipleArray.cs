@@ -330,9 +330,111 @@ namespace ConsoleApp1
         }
         return true;
       }
+    ///calculates the smallest gap between numbers in an array of integers
+    static int SmallestGap(int [] c)
+      {
+        int min;
+        int [] nums = {200,300,250,151,162};
+        int [] result = new int [nums.Length];
+        for (int i = nums.Length; i > 0; i--)
+        {
+          result[i] = nums[i] - nums[0];
+        }
+        for (int i = nums.Length; i > 1; i--)
+        {
+          result[i] = nums[i] - nums[1];
+        }
+        for (int i = nums.Length; i > 2; i--)
+        {
+          result[i] = nums[i] - nums[2];
+        }
+        for (int i = nums.Length; i > 3; i--)
+        {
+          result[i] = nums[i] - nums[3];
+        }
+        min = result[0]; 
+          for (int i = 1; i < result.Length; i++)
+          {
+            min = Math.Min(min, result[i]); 
+          }
+        return min;
+      }
+      ///Check whether the digit is present in this array of numbers.
+      static bool CheckDigit(int [] c)
+      {
+        int a, b;
+        int [] nums = {7,5,85,9,11,23,18};
+        int n = 5;
+        for (int i = 0; i < nums.Length; i++)
+        {
+          if (nums[i]  > 9 )
+          {
+            a = nums[i ] /10;
+            b = nums[i] %10;
+            if (a == n || b == n) return true;
+          }
+          else if(nums[i] == n) return true;
+        }
+        return false;
+        
+      }
+      ///Calculate the sum of all prime numbers in an array.
+      static int SumOfPrimeNumbers(int [] c)
+      {
+        int prime=0;
+        int n = 0;
+        int [] nums = {7,5,85,9,11,23,18};
+        for (int i = 0; i < nums.Length; i++)
+        {
+          for (int j = 0; j < nums[i]/2; j++)
+          {
+            if (nums[i] % j == 0)
+            {
+              n++;
+              break;
+            }
+          }
+          if (n ==0 && nums[i] != 1) prime += nums[i];
+        }
+        return prime;
+      }
+      ///find the smallest positive integer that is not present in that array
+      static int SmallestPositiveInteger(int [] c)
+      {
+        int [] nums  = {-1,-2,0,1,3,4,5,6};
+        for (int i =0; i < nums.Length; i++)
+        {
+          if (nums[i] < 0) break;
+          else if (nums[i+1] - nums[i] != 1) return nums[i] + 1;
+        }
+        return 0;
+      }
+      ///find two numbers in an array of integers whose product is equal to a given number
+      static int [] FindTwoNumbers(int [] c)
+      {
+        int [] nums = {10,18,39,75,100};
+        int [] result = new int [2];
+        int n = 180;
+        foreach (int x in nums)
+        {
+          foreach (int y in nums)
+          {
+            if (x * y == n)
+            {
+               result[0] = x;
+               result [1] = y;
+            }
+          }
+        }
+        return result;
+      }  
     public static void Main (string[] args)
     {
       int [,] a = new int[3,5];
+      int [] nums = {7,5,85,9,11,23,18};
+      int [] res = {7,5,85,9,11,23,18};
+      int [] num  = {-1,-2,0,1,3,4,5,6};
+      int [] product = {10,18,39,75,100};
       RandomData(a);
       PrintArraySequence(a);
       ///print the matrix of an 2d 3x3 array
@@ -365,10 +467,17 @@ namespace ConsoleApp1
         Console.WriteLine($"The new matris: {a}");
       }
       else Console.WriteLine("The matrix has no duplicate elements");
-      FindMissingNumber(c);
-      bool r5 = CheckConsecutiveNumbers(c);
+      FindMissingNumber(nums);
+      bool r5 = CheckConsecutiveNumbers(nums);
       if (r5==true) Console.WriteLine("The numbers are consecutive");
       else Console.WriteLine("The numbers are not consecutive");
+      SmallestGap(nums);
+      bool r6 = CheckDigit(nums);
+      if (r6==true) Console.WriteLine("The digit is present in the array");
+      else Console.WriteLine("The digit is not present in the array");
+      SumOfPrimeNumbers(res);
+      SmallestPositiveInteger(num);
+      FindTwoNumbers(product);
     }
    }
 }
